@@ -28,16 +28,17 @@ SELECT AVG(precio) FROM articulos WHERE fabricante=2;
 SELECT COUNT(codigo) FROM articulos WHERE precio >= 180;
 
 -- 1.9. Obtener el nombre y precio de los artículos cuyo precio sea mayor o igual a 180€
-		-- y ordenarlos descendentemente por precio, y luego ascendentemente por nombre
+	-- y ordenarlos descendentemente por precio, y luego ascendentemente por nombre
 SELECT nombre,precio FROM articulos WHERE precio >= 180 ORDER BY precio DESC, nombre;
 
 -- 1.10. Obtener un listado completo de artículos, incluyendo por cada artículo los datos del artículo y su fabricante
 SELECT * FROM articulos INNER JOIN fabricantes ON articulos.fabricante=fabricantes.codigo;
 
 -- 1.11. Obtener un listado de artículos, incluyendo el nombre del artículo, su precio, y el nombre de su fabricante
--SELECT * FROM articulos;
+SELECT a.nombre, a.precio, f.nombre FROM articulos a INNER JOIN fabricantes f on a.fabricante=f.codigo;
 
 -- 1.12. Obtener el precio medio de los productos de cada fabricante, mostrando solo los códigos de fabricante
+SELECT a.fabricante, AVG(a.precio) FROM articulos a GROUP BY a.fabricante;
 
 -- 1.13.
 -- 1.14.
