@@ -1,7 +1,5 @@
--- select * from fabricantes
-USE actividades;
-
 -- EJERCICIO 1
+USE actividades;
 SELECT * FROM articulos;
 SELECT * FROM fabricantes;
 
