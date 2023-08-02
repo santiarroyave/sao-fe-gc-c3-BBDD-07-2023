@@ -69,10 +69,24 @@ INSERT INTO departamentos (codigo, nombre, presupuesto)
 	VALUES(11, "Calidad",40000);
 INSERT INTO empleados (dni, nombre, apellidos, departamento)
 	VALUES(89267109, "Esther", "Vázquez", 11);
-
         
--- 2.16.
--- 2.17.
--- 2.18.
--- 2.19.
--- 2.20.
+-- 2.16. Aplicar un recorte presupuestario del 10% a todos los departamentos
+UPDATE departamentos
+	SET presupuesto = presupuesto * 0.9;
+SELECT codigo, nombre, presupuesto * 0.9 AS presupuesto
+	FROM departamentos;
+
+-- 2.17. Reasignar a los empleados del departamento de investigación (código 77) al departamento de informática (código 14)
+UPDATE empleados
+	SET departamento = 14
+	WHERE departamento = 77;
+
+-- 2.18. Despedir a todos los empleados que trabajan para el departamento de informática (código 14)
+DELETE FROM empleados WHERE departamento=14;
+
+-- 2.19. Despedir a todos los empleados que trabajan para departamentos cuyo presupuesto sea superior a los 60.000 €
+DELETE FROM empleados
+	WHERE departamento IN (SELECT codigo FROM departamentos WHERE presupuesto > 60000);
+
+-- 2.20. Despedir a todos los empleados
+DELETE FROM empleados;
