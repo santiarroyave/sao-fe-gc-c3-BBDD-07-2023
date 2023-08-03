@@ -1,4 +1,4 @@
--- EJERCICIO 3
+-- EJERCICIO 4
 USE actividades;
 SELECT * FROM salas;
 SELECT * FROM peliculas;
